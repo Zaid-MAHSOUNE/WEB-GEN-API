@@ -26,13 +26,21 @@ function html_compiler($args) {
     return $html_encoded;
 }
 
-
 /*     CSS      */
+
+function css_notation($arg){
+    $index = strcspn($arg,'ABCDEFGHIJKLMNOPQRSTVWXYZ');
+    $length = strlen($arg);
+    $arg=strtolower($arg);
+    if($length !== $index)
+    $arg = substr_replace($arg,"-",$index,0);
+    return $arg; 
+}
 
 function aux_css_compiler($args) {
     $css_encoded = "";
     foreach($args as $key => $value){
-        $css_encoded .= "\n".$key.":".$value.";";
+        $css_encoded .= "\n".css_notation($key).":".$value.";";
     }
     return $css_encoded;
 }
