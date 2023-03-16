@@ -40,7 +40,7 @@ function css_notation($arg){
 function aux_css_compiler($args) {
     $css_encoded = "";
     foreach($args as $key => $value){
-        $css_encoded .= "\n".css_notation($key).":".$value.";";
+        $css_encoded .= "".css_notation($key).":".$value.";\n";
     }
     return $css_encoded;
 }
@@ -58,7 +58,7 @@ function css_compiler($args) {
     }
     
     foreach($class_array as $class) {
-        $css_encoded .= ".".$class["class"]."{".aux_css_compiler($class["style"])."}\n";
+        $css_encoded .= ".".$class["class"]."{\n".aux_css_compiler($class["style"])."}\n";
     }
 
     return $css_encoded;
