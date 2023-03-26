@@ -12,8 +12,7 @@ if($current_zip) {
 
 if(file_exists("../../../data/test.zip")) {
     $zip_name = "test.zip";
-    echo filesize("../../../data/test.zip");
-    
+    ob_clean();
     header("Content-Disposition: attachment; filename=$zip_name");
     header("Content-length: " . filesize("../../../data/test.zip"));
     header("Pragma: no-cache"); 

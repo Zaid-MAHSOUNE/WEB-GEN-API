@@ -46,6 +46,7 @@ function aux_css_compiler($args) {
 }
 
 function css_compiler($args) {
+    print_r($args);
     $class_array = [];
     $defined = [];
     $css_encoded = "";
@@ -57,6 +58,8 @@ function css_compiler($args) {
         }
     }
     
+    print_r($class_array);
+
     foreach($class_array as $class) {
         $css_encoded .= ".".$class["class"]."{\n".aux_css_compiler($class["style"])."}\n";
     }
