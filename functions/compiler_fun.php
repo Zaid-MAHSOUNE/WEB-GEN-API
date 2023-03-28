@@ -9,7 +9,7 @@ function aux_compiler($args,$id){
         if($a->tag !== "input" && $a->tag !== "img")
         $html_encoded .= "\n<".$a->tag." class=\"".$a->class."\"".">".$a->value.aux_compiler($args,$a->id)."</".$a->tag.">\n";
         else
-        $html_encoded .= "\n<".$a->tag." class=\"".$a->class."\""."/>\n";
+        $html_encoded .= "\n<".$a->tag." class=\"".$a->class."\""." src=\"".$a->src."\""."/>\n";
     }}
     return $html_encoded;
 }
@@ -21,7 +21,7 @@ function html_compiler($args) {
         if($a->tag !== "input" && $a->tag !== "img")
         $html_encoded .= "<".$a->tag." class=\"".$a->class."\"".">".$a->value.aux_compiler($args,$a->id)."</".$a->tag.">\n";
         else
-        $html_encoded .= "<".$a->tag." class=\"".$a->class."\""."/>\n";
+        $html_encoded .= "<".$a->tag." class=\"".$a->class."\""." src=\"".$a->src."\""."/>\n";
     }}
     return $html_encoded;
 }
