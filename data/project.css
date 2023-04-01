@@ -1,8 +1,12 @@
 .container{
 color:#000000;
 background-color:#ffffff;
+text-decoration:none;
+text-decoration-color:#000000;
+font-family:default;
+text-transform:none;
+font-weight:default;
 cursor:default;
 border-style:ridge ;
-display:block;
 position:relative;
 }
