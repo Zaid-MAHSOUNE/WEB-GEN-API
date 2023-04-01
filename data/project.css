@@ -1,9 +1,8 @@
 .container{
-background-size:auto;
-width:25%;
-height:25%;
+color:#000000;
+background-color:#ffffff;
+cursor:default;
+border-style:ridge ;
 display:block;
 position:relative;
-border-style:ridge ;
-cursor:default;
 }

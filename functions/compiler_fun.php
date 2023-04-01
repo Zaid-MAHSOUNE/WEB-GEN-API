@@ -2,6 +2,15 @@
 
 /*      HTML     */
 
+function attributes_compiler($arg){
+    $html_encoded = "";
+    foreach($arg as $key=>$value){
+        if($key!="style" && $key!="tag" && $key!="parentId" && $key!="value")
+           $html_encoded .= " ".$key."=\"".$value."\" ";  
+    }
+    return $html_encoded;
+}
+
 function aux_compiler($args,$id){
     $html_encoded = "";
     foreach($args as $a){
@@ -15,13 +24,13 @@ function aux_compiler($args,$id){
 }
 
 function html_compiler($args) {
-    $html_encoded = "";
+    $html_encoded = "\n";
     foreach($args as $a){
         if($a->parentId === 0){
         if($a->tag !== "input" && $a->tag !== "img")
-        $html_encoded .= "<".$a->tag." class=\"".$a->class."\"".">".$a->value.aux_compiler($args,$a->id)."</".$a->tag.">\n";
+        $html_encoded .= "\t\t<".$a->tag." ".attributes_compiler($a).">".$a->value.aux_compiler($args,$a->id)."</".$a->tag.">\n";
         else
-        $html_encoded .= "<".$a->tag." class=\"".$a->class."\""." src=\"".$a->src."\""."/>\n";
+        $html_encoded .= "\t\t<".$a->tag." class=\"".$a->class."\""." src=\"".$a->src."\""."/>\n";
     }}
     return $html_encoded;
 }
@@ -46,7 +55,6 @@ function aux_css_compiler($args) {
 }
 
 function css_compiler($args) {
-    print_r($args);
     $class_array = [];
     $defined = [];
     $css_encoded = "";
@@ -58,7 +66,6 @@ function css_compiler($args) {
         }
     }
     
-    print_r($class_array);
 
     foreach($class_array as $class) {
         $css_encoded .= ".".$class["class"]."{\n".aux_css_compiler($class["style"])."}\n";
