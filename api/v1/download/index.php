@@ -1,7 +1,7 @@
 <?php
 
 $zip = new ZipArchive;
-$current_zip = $zip->open("../../../data/test.zip",ZipArchive::OVERWRITE);
+$current_zip = $zip->open("../../../data/WebProject.zip",ZipArchive::OVERWRITE);
 
 if($current_zip) {
     $zip->addFile("../../../data/project.html","project.html");
