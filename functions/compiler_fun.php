@@ -5,7 +5,7 @@
 function attributes_compiler($arg){
     $html_encoded = "";
     foreach($arg as $key=>$value){
-        if($key!="style" && $key!="tag" && $key!="parentId" && $key!="value" && $key=="id")
+        if($key!="style" && $key!="tag" && $key!="parentId" && $key!="value" && $key!="id" && $key != "readOnly")
            $html_encoded .= " ".$key."=\"".$value."\" ";  
     }
     return $html_encoded;
