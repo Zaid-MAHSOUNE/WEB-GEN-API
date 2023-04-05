@@ -10,11 +10,11 @@ if($current_zip) {
 }
 
 
-if(file_exists("../../../data/test.zip")) {
-    $zip_name = "test.zip";
+if(file_exists("../../../data/WebProject.zip")) {
+    $zip_name = "WebProject.zip";
     ob_clean();
     header("Content-Disposition: attachment; filename=$zip_name");
-    header("Content-length: " . filesize("../../../data/test.zip"));
+    header("Content-length: " . filesize("../../../data/WebProject.zip"));
     header("Pragma: no-cache"); 
     header("Expires: 0"); 
     header("Pragma: public");
@@ -24,7 +24,7 @@ if(file_exists("../../../data/test.zip")) {
     header("Content-type: application/octet-stream");
     header("Content-Transfer-Encoding: binary");
     ob_end_flush();
-    @readfile("../../../data/test.zip");
+    @readfile("../../../data/WebProject.zip");
     
 }
 
